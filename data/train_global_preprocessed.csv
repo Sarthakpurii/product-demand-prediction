@@ -3277,21 +3277,21 @@ Day_Count,Day,StoreID,ProductName,Product_Calorie,Promo_applied,specials,mods,Am
 199,Thursday,S002,Fries,400,0,0,0,12900.0,cold,2.8,2.2
 199,Thursday,S002,Chicken Burger,700,0,0,0,5950.0,cold,2.8,2.2
 199,Thursday,S001,Fries,400,0,0,0,9450.0,hot,2.8,2.2
-200,6,S002,Cheese Burger,800,0,0,0,8200.0,hot,2.8,2.2
-200,6,S002,Fries,400,0,0,0,17175.0,hot,2.8,2.2
-200,6,S003,Chicken Burger,700,0,0,0,9010.0,very hot,2.8,2.2
-200,6,S002,Chicken Burger,700,0,0,0,8840.0,hot,2.8,2.2
-200,6,S001,Coca-Cola,100,0,0,0,21590.0,hot,2.8,2.2
-200,6,S001,Veg Burger,625,0,0,0,14375.0,hot,2.8,2.2
-200,6,S002,Veg Burger,625,0,0,0,19875.0,hot,2.8,2.2
-200,6,S003,Veg Burger,625,0,0,0,3570000.0,very hot,2.8,2.2
-200,6,S001,Chicken Burger,700,0,0,0,21760.0,hot,2.8,2.2
-200,6,S001,Cheese Burger,800,0,0,0,16000.0,hot,2.8,2.2
-200,6,S003,Cheese Burger,800,0,0,0,8800.0,very hot,2.8,2.2
-200,6,S003,Coca-Cola,100,0,0,0,32555.0,very hot,2.8,2.2
-200,6,S003,Fries,400,0,0,0,16200.0,very hot,2.8,2.2
-200,6,S001,Fries,400,0,0,0,13125.0,hot,2.8,2.2
-200,6,S002,Coca-Cola,100,0,0,0,26265.0,hot,2.8,2.2
+200,Friday,S002,Cheese Burger,800,0,0,0,8200.0,hot,2.8,2.2
+200,Friday,S002,Fries,400,0,0,0,17175.0,hot,2.8,2.2
+200,Friday,S003,Chicken Burger,700,0,0,0,9010.0,very hot,2.8,2.2
+200,Friday,S002,Chicken Burger,700,0,0,0,8840.0,hot,2.8,2.2
+200,Friday,S001,Coca-Cola,100,0,0,0,21590.0,hot,2.8,2.2
+200,Friday,S001,Veg Burger,625,0,0,0,14375.0,hot,2.8,2.2
+200,Friday,S002,Veg Burger,625,0,0,0,19875.0,hot,2.8,2.2
+200,Friday,S003,Veg Burger,625,0,0,0,3570000.0,very hot,2.8,2.2
+200,Friday,S001,Chicken Burger,700,0,0,0,21760.0,hot,2.8,2.2
+200,Friday,S001,Cheese Burger,800,0,0,0,16000.0,hot,2.8,2.2
+200,Friday,S003,Cheese Burger,800,0,0,0,8800.0,very hot,2.8,2.2
+200,Friday,S003,Coca-Cola,100,0,0,0,32555.0,very hot,2.8,2.2
+200,Friday,S003,Fries,400,0,0,0,16200.0,very hot,2.8,2.2
+200,Friday,S001,Fries,400,0,0,0,13125.0,hot,2.8,2.2
+200,Friday,S002,Coca-Cola,100,0,0,0,26265.0,hot,2.8,2.2
 201,Saturday,S003,Veg Burger,625,0,0,0,3591250.0,humid,2.2,3.2
 201,Saturday,S001,Fries,400,0,0,0,12900.0,very hot,2.2,3.2
 201,Saturday,S003,Fries,400,0,0,0,17100.0,humid,2.2,3.2
