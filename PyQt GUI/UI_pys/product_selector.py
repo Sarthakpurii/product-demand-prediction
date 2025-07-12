@@ -93,6 +93,17 @@ class Ui_Dialog(object):
         self.pushButton.setStyleSheet("")
         self.pushButton.setObjectName("pushButton")
         self.gridLayout.addWidget(self.widget_7, 2, 2, 1, 1)
+        self.widget_8 = QtWidgets.QWidget(Dialog)
+        self.widget_8.setObjectName("widget_8")
+        self.pushButton_2 = QtWidgets.QPushButton(self.widget_8)
+        self.pushButton_2.setGeometry(QtCore.QRect(140, 20, 121, 41))
+        font = QtGui.QFont()
+        font.setFamily("Open Sans")
+        font.setPointSize(12)
+        self.pushButton_2.setFont(font)
+        self.pushButton_2.setStyleSheet("")
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.gridLayout.addWidget(self.widget_8, 2, 0, 1, 1)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -109,6 +120,7 @@ class Ui_Dialog(object):
         self.comboBox.setItemText(5, _translate("Dialog", "Fries"))
         self.comboBox.setItemText(6, _translate("Dialog", "Coca-Cola"))
         self.pushButton.setText(_translate("Dialog", "Next"))
+        self.pushButton_2.setText(_translate("Dialog", "Back"))
 
 
 if __name__ == "__main__":

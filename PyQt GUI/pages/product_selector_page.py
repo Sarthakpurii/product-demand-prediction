@@ -1,8 +1,5 @@
-# pages/product_selector_page.py
-
-from PyQt5.QtWidgets import QWidget, QPushButton
-from PyQt5.QtCore import pyqtSignal, QRect
-from PyQt5.QtGui import QFont
+from PyQt5.QtWidgets import QWidget, QVBoxLayout
+from PyQt5.QtCore import pyqtSignal
 from UI_pys.product_selector import Ui_Dialog
 
 class ProductSelectorPage(QWidget):
@@ -11,25 +8,28 @@ class ProductSelectorPage(QWidget):
     
     def __init__(self):
         super().__init__()
-        self.ui = Ui_Dialog()
-        self.ui.setupUi(self)
         
-        # Add a back button
-        self.back_button = QPushButton(self.ui.widget_7)
-        self.back_button.setGeometry(QRect(170, 20, 121, 41))
-        font = QFont()
-        font.setFamily("Open Sans")
-        font.setPointSize(12)
-        self.back_button.setFont(font)
-        self.back_button.setText("Back")
+        # Create a dialog UI but apply it to a widget
+        self.dialog_widget = QWidget()
+        self.ui = Ui_Dialog()
+        self.ui.setupUi(self.dialog_widget)
+        
+        # Create layout and add the dialog widget
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.addWidget(self.dialog_widget)
         
         # Connect signals
         self.ui.pushButton.clicked.connect(self.on_next_clicked)
-        self.back_button.clicked.connect(self.back_clicked.emit)
+        self.ui.pushButton_2.clicked.connect(self.on_back_clicked)  # Connect the back button
         
     def on_next_clicked(self):
         selected_product = self.ui.comboBox.currentText()
         if selected_product == "-Select-":
-            print("Please select a product first!")
+            from PyQt5.QtWidgets import QMessageBox
+            QMessageBox.warning(self, "No Selection", "Please select a product before proceeding.")
             return
         self.next_clicked.emit(selected_product)
+    
+    def on_back_clicked(self):
+        self.back_clicked.emit()
