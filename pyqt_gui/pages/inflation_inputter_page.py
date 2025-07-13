@@ -3,7 +3,7 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QMessageBox
 from PyQt5.QtCore import pyqtSignal
 from PyQt5.QtGui import QDoubleValidator
-from UI_pys.inflation_inputter import Ui_Dialog
+from ..ui_pys.inflation_inputter import Ui_Dialog
 
 class InflationInputterPage(QWidget):
     next_clicked = pyqtSignal(float)  # Signal to emit inflation percentage

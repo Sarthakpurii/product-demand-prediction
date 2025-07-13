@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout
 from PyQt5.QtCore import pyqtSignal
-from UI_pys.product_selector import Ui_Dialog
+from ..ui_pys.product_selector import Ui_Dialog
 
 class ProductSelectorPage(QWidget):
     next_clicked = pyqtSignal(str)  # Signal to emit selected product

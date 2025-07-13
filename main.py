@@ -75,7 +75,7 @@
 
 import sys
 from PyQt5.QtWidgets import QApplication
-from pages.main_window import MainWindow
+from pyqt_gui.pages.main_window import MainWindow
 
 def start_gui():
     app = QApplication(sys.argv)

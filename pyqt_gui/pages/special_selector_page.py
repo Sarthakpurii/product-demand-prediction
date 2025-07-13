@@ -2,7 +2,7 @@
 
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QMessageBox
 from PyQt5.QtCore import pyqtSignal
-from UI_pys.special_selector import Ui_Dialog
+from ..ui_pys.special_selector import Ui_Dialog
 
 class SpecialSelectorPage(QWidget):
     next_clicked = pyqtSignal(list)  

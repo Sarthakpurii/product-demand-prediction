@@ -2,12 +2,12 @@
 
 from PyQt5.QtWidgets import QMainWindow, QStackedWidget, QMessageBox
 from PyQt5.QtCore import Qt
-from pages.day_selector_page import DaySelectorPage
-from pages.product_selector_page import ProductSelectorPage
-from pages.special_selector_page import SpecialSelectorPage
-from pages.inflation_inputter_page import InflationInputterPage
-from pages.unemployment_inputter_page import UnemploymentInputterPage
-from pages.prediction_page import PredictionPage
+from .day_selector_page import DaySelectorPage
+from .product_selector_page import ProductSelectorPage
+from .special_selector_page import SpecialSelectorPage
+from .inflation_inputter_page import InflationInputterPage
+from .unemployment_inputter_page import UnemploymentInputterPage
+from .prediction_page import PredictionPage
 
 
 class MainWindow(QMainWindow):

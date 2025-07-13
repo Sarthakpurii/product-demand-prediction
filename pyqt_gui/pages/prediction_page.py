@@ -1,7 +1,7 @@
 
 from PyQt5.QtWidgets import QWidget, QVBoxLayout
 from PyQt5.QtCore import pyqtSignal
-from UI_pys.prediction import Ui_Dialog
+from ..ui_pys.prediction import Ui_Dialog
 
 class PredictionPage(QWidget):
     start_over_clicked = pyqtSignal()  # Signal to restart the application
