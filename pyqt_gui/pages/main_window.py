@@ -8,8 +8,14 @@ from .special_selector_page import SpecialSelectorPage
 from .inflation_inputter_page import InflationInputterPage
 from .unemployment_inputter_page import UnemploymentInputterPage
 from .prediction_page import PredictionPage
+import joblib
+from preprocessing import preprocess
 
-
+try:
+    rf_model = joblib.load('model_strategies/model1_predicting_combined_sales/rf_model.pkl')
+    print(rf_model)
+except FileNotFoundError:
+    print("Model not found.")
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -106,10 +112,10 @@ class MainWindow(QMainWindow):
         )
         
         if reply == QMessageBox.Yes:
-            self.prediction_page.set_sales_result(0, "$")
+            sales=self.predict_sales(self.selected_day, self.selected_product, len(self.selected_stores), self.inputted_inflation, self.inputted_unemployment)
+            self.prediction_page.set_sales_result(sales, "₹")
             self.stacked_widget.setCurrentWidget(self.prediction_page)
             
-        
     def reset_to_beginning(self):
         """Reset the application to the first page"""
         self.selected_day = None
@@ -120,3 +126,12 @@ class MainWindow(QMainWindow):
 
         
         self.stacked_widget.setCurrentWidget(self.day_selector)
+
+    def predict_sales(self,day, product, specials, inflation_percentage, unemployment_percentage):
+        data={"Day":day, "ProductName":product, "specials":specials, "Inflation_Percentage":inflation_percentage, "Unemployment_Percentage":unemployment_percentage}
+        print(data)
+        data=preprocess(data)
+        print(data)
+        sales=rf_model.predict(data)
+        print(sales)
+        return sales[0]
