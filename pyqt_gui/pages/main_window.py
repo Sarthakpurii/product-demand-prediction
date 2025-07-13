@@ -9,7 +9,7 @@ from .inflation_inputter_page import InflationInputterPage
 from .unemployment_inputter_page import UnemploymentInputterPage
 from .prediction_page import PredictionPage
 import joblib
-from preprocessing import preprocess
+from core.utils.preprocessing import preprocess
 
 try:
     rf_model = joblib.load('model_strategies/model1_predicting_combined_sales/rf_model.pkl')
