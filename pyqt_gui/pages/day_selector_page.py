@@ -18,6 +18,7 @@ class DaySelectorPage(QWidget):
     def on_next_clicked(self):
         selected_day = self.ui.comboBox.currentText()
         if selected_day == "-Select-":
-            print("Please select a day first!")
+            from PyQt5.QtWidgets import QMessageBox
+            QMessageBox.warning(self, "No Selection", "Please select a day before proceeding.")
             return
         self.next_clicked.emit(selected_day)

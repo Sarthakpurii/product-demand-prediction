@@ -85,7 +85,7 @@ class Ui_Dialog(object):
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(14)
-        font.setItalic(True)
+        # font.setItalic(True)
         self.info_label.setFont(font)
         self.info_label.setAlignment(QtCore.Qt.AlignCenter)
         self.info_label.setWordWrap(True)
@@ -149,7 +149,7 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Sales Prediction Result"))
         self.result_label.setText(_translate("Dialog", "The predicted sales are: $0.00"))
-        self.info_label.setText(_translate("Dialog", "Based on your selected parameters"))
+        self.info_label.setText(_translate("Dialog", "Based on your provided details"))
         self.startOverButton.setText(_translate("Dialog", "Start Over"))
 
 

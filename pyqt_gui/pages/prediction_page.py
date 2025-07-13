@@ -22,15 +22,9 @@ class PredictionPage(QWidget):
     def on_start_over_clicked(self):
         self.start_over_clicked.emit()
     
-    def set_sales_result(self, amount, currency="$"):
-        """Set the sales prediction result
-        
-        Args:
-            amount: The predicted sales amount
-            currency: Currency symbol (default: $)
-        """
+    def set_sales_result(self, amount,product, currency):
         formatted_amount = f"{currency}{amount:,.2f}"
-        self.ui.result_label.setText(f"The predicted sales are: {formatted_amount}")
+        self.ui.result_label.setText(f"The predicted sales for {product} are: {formatted_amount}")
     
     def set_additional_info(self, info_text):
         """Set additional information text below the result"""

@@ -97,7 +97,7 @@ class Ui_Dialog(object):
         self.widget_8 = QtWidgets.QWidget(Dialog)
         self.widget_8.setObjectName("widget_8")
         self.pushButton_2 = QtWidgets.QPushButton(self.widget_8)
-        self.pushButton_2.setGeometry(QtCore.QRect(140, 20, 121, 41))
+        self.pushButton_2.setGeometry(QtCore.QRect(500, 20, 121, 41))
         font = QtGui.QFont()
         font.setFamily("Open Sans")
         font.setPointSize(12)

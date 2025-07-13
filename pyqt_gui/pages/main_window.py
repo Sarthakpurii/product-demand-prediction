@@ -113,7 +113,7 @@ class MainWindow(QMainWindow):
         
         if reply == QMessageBox.Yes:
             sales=self.predict_sales(self.selected_day, self.selected_product, len(self.selected_stores), self.inputted_inflation, self.inputted_unemployment)
-            self.prediction_page.set_sales_result(sales, "₹")
+            self.prediction_page.set_sales_result(sales,self.selected_product, "₹")
             self.stacked_widget.setCurrentWidget(self.prediction_page)
             
     def reset_to_beginning(self):
