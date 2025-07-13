@@ -9,6 +9,7 @@ from pages.inflation_inputter_page import InflationInputterPage
 from pages.unemployment_inputter_page import UnemploymentInputterPage
 from pages.prediction_page import PredictionPage
 
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
