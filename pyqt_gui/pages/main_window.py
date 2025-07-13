@@ -10,9 +10,17 @@ from .unemployment_inputter_page import UnemploymentInputterPage
 from .prediction_page import PredictionPage
 import joblib
 from core.utils.preprocessing import preprocess
+import sys
+from pathlib import Path
 
+if getattr(sys, 'frozen', False):
+    BASE_DIR = Path(sys._MEIPASS)
+else:
+    BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = BASE_DIR / "model_strategies/model1_predicting_combined_sales/rf_model.pkl"
 try:
-    rf_model = joblib.load('model_strategies/model1_predicting_combined_sales/rf_model.pkl')
+    # rf_model = joblib.load('model_strategies/model1_predicting_combined_sales/rf_model.pkl')
+    rf_model = joblib.load(BASE_DIR)
     print(rf_model)
 except FileNotFoundError:
     print("Model not found.")

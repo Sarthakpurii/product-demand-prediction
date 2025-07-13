@@ -1,8 +1,17 @@
 import pandas as pd
 from joblib import load
+import sys
+from pathlib import Path
 
 
-preprocessor=load('model_strategies/model1_predicting_combined_sales/preprocessor.pkl')
+if getattr(sys, 'frozen', False):
+    BASE_DIR = Path(sys._MEIPASS)
+else:
+    BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+BASE_DIR = BASE_DIR / "model_strategies/model1_predicting_combined_sales/preprocessor.pkl"
+
+preprocessor=load(BASE_DIR)
 
 final_cols=['ProductName_Cheese Burger',
  'ProductName_Chicken Burger',

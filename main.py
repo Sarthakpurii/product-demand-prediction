@@ -5,7 +5,6 @@ import qdarktheme
 
 def start_gui():
     app = QApplication(sys.argv)
-    print("Available styles:", QStyleFactory.keys())
     app.setStyleSheet(qdarktheme.load_stylesheet())
     # app.setStyleSheet(qdarktheme.load_stylesheet("light"))
 
