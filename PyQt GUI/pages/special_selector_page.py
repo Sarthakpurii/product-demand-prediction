@@ -37,17 +37,6 @@ class SpecialSelectorPage(QWidget):
     def on_back_clicked(self):
         self.back_clicked.emit()
     
-    def get_selected_stores(self):
-        """Helper method to get the currently selected stores"""
-        selected_stores = []
-        if self.ui.checkBox_3.isChecked():
-            selected_stores.append("S001")
-        if self.ui.checkBox_2.isChecked():
-            selected_stores.append("S002")
-        if self.ui.checkBox.isChecked():
-            selected_stores.append("S003")
-        return selected_stores
-    
     def reset_selection(self):
         """Reset all checkboxes to unchecked"""
         self.ui.checkBox_3.setChecked(False)
