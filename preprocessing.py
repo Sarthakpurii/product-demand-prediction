@@ -2,6 +2,10 @@
 import pandas as pd
 import numpy as np
 from joblib import load
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / 'model_strategies' / 'model1_predicting_combined_sales' / 'preprocessor.pkl'
 
 #Constants
 product_map = {
@@ -45,7 +49,8 @@ special_map={
     'N':0,
     'nO':0
 }
-preprocessor=load('model_strategies/model1_predicting_combined_sales/preprocessor.pkl')
+# preprocessor=load('model_strategies/model1_predicting_combined_sales/preprocessor.pkl')
+preprocessor=load(MODEL_PATH)
 
 upper_limit_s3=34050.15
 
