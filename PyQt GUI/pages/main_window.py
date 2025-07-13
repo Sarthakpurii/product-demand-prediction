@@ -6,6 +6,7 @@ from pages.day_selector_page import DaySelectorPage
 from pages.product_selector_page import ProductSelectorPage
 from pages.special_selector_page import SpecialSelectorPage
 from pages.inflation_inputter_page import InflationInputterPage
+from pages.unemployment_inputter_page import UnemploymentInputterPage
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -20,11 +21,14 @@ class MainWindow(QMainWindow):
         self.product_selector = ProductSelectorPage()
         self.special_selector = SpecialSelectorPage()
         self.inflation_inputter = InflationInputterPage()
+        self.unemployment_inputter = UnemploymentInputterPage()
         
         self.stacked_widget.addWidget(self.day_selector)
         self.stacked_widget.addWidget(self.product_selector)
         self.stacked_widget.addWidget(self.special_selector)
         self.stacked_widget.addWidget(self.inflation_inputter)
+        self.stacked_widget.addWidget(self.unemployment_inputter)
+        
         
         self.day_selector.next_clicked.connect(self.go_to_product_selector)
         
@@ -35,7 +39,10 @@ class MainWindow(QMainWindow):
         self.special_selector.next_clicked.connect(self.go_to_inflation_inputter)
         
         self.inflation_inputter.back_clicked.connect(self.go_to_special_selector_from_inflation)
-        self.inflation_inputter.next_clicked.connect(self.complete_order)
+        self.inflation_inputter.next_clicked.connect(self.go_to_unemployment_inputter)
+        
+        self.unemployment_inputter.back_clicked.connect(self.go_to_inflation_inputter_from_unemployment)
+        self.unemployment_inputter.next_clicked.connect(self.complete_order)
         
         
         
@@ -45,6 +52,7 @@ class MainWindow(QMainWindow):
         self.selected_product = None
         self.selected_stores = []
         self.inputted_inflation = None
+        self.inputted_unemployment = None
         
     def go_to_product_selector(self, selected_day):
         self.selected_day = selected_day
@@ -69,11 +77,21 @@ class MainWindow(QMainWindow):
         
     def go_to_special_selector_from_inflation(self):
         self.stacked_widget.setCurrentWidget(self.special_selector)
-    
         
-    def complete_order(self, inflation_percentage):
+    def go_to_unemployment_inputter(self, inflation_percentage):
         self.inputted_inflation = inflation_percentage
         print(f"Inputted inflation: {inflation_percentage}")
+        self.stacked_widget.setCurrentWidget(self.unemployment_inputter)
+    
+    def go_to_inflation_inputter_from_unemployment(self):
+        self.stacked_widget.setCurrentWidget(self.inflation_inputter)
+    
+        
+    def complete_order(self, unemployment_percentage):
+        self.inputted_unemployment = unemployment_percentage
+        print(f"Inputted unemployment: {unemployment_percentage}")
+        
+        # TODO: implement order confirmation
         
 #         if selected_stores:
 #             stores_text = ", ".join(selected_stores)
