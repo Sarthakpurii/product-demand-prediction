@@ -7,6 +7,7 @@ from pages.product_selector_page import ProductSelectorPage
 from pages.special_selector_page import SpecialSelectorPage
 from pages.inflation_inputter_page import InflationInputterPage
 from pages.unemployment_inputter_page import UnemploymentInputterPage
+from pages.prediction_page import PredictionPage
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -22,12 +23,14 @@ class MainWindow(QMainWindow):
         self.special_selector = SpecialSelectorPage()
         self.inflation_inputter = InflationInputterPage()
         self.unemployment_inputter = UnemploymentInputterPage()
+        self.prediction_page = PredictionPage()
         
         self.stacked_widget.addWidget(self.day_selector)
         self.stacked_widget.addWidget(self.product_selector)
         self.stacked_widget.addWidget(self.special_selector)
         self.stacked_widget.addWidget(self.inflation_inputter)
         self.stacked_widget.addWidget(self.unemployment_inputter)
+        self.stacked_widget.addWidget(self.prediction_page)
         
         
         self.day_selector.next_clicked.connect(self.go_to_product_selector)
@@ -42,7 +45,9 @@ class MainWindow(QMainWindow):
         self.inflation_inputter.next_clicked.connect(self.go_to_unemployment_inputter)
         
         self.unemployment_inputter.back_clicked.connect(self.go_to_inflation_inputter_from_unemployment)
-        self.unemployment_inputter.next_clicked.connect(self.complete_order)
+        self.unemployment_inputter.next_clicked.connect(self.confirm_details)
+        
+        self.prediction_page.start_over_clicked.connect(self.reset_to_beginning)
         
         
         
@@ -87,41 +92,30 @@ class MainWindow(QMainWindow):
         self.stacked_widget.setCurrentWidget(self.inflation_inputter)
     
         
-    def complete_order(self, unemployment_percentage):
+    def confirm_details(self, unemployment_percentage):
         self.inputted_unemployment = unemployment_percentage
         print(f"Inputted unemployment: {unemployment_percentage}")
+             
+        reply = QMessageBox.question(
+            self, 
+            'Confirmation', 
+            f'Confirmed the details?',
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.Yes
+        )
         
-        # TODO: implement order confirmation
-        
-#         if selected_stores:
-#             stores_text = ", ".join(selected_stores)
-#         else:
-#             stores_text = "None (No special for any store)"
-        
-#         summary = f"""Order Summary:
-# - Day: {self.selected_day}
-# - Product: {self.selected_product}
-# - Stores with special: {stores_text}"""
-        
-#         print(summary)
-        
-#         reply = QMessageBox.question(
-#             self, 
-#             'Order Confirmation', 
-#             f'{summary}\n\nConfirm this order?',
-#             QMessageBox.Yes | QMessageBox.No,
-#             QMessageBox.No
-#         )
-        
-#         if reply == QMessageBox.Yes:
-#             QMessageBox.information(self, "Success", "Order placed successfully!")
-#             self.reset_to_beginning()
+        if reply == QMessageBox.Yes:
+            self.prediction_page.set_sales_result(0, "$")
+            self.stacked_widget.setCurrentWidget(self.prediction_page)
+            
         
     def reset_to_beginning(self):
         """Reset the application to the first page"""
         self.selected_day = None
         self.selected_product = None
         self.selected_stores = []
+        self.inputted_inflation = None
+        self.inputted_unemployment = None
 
         
         self.stacked_widget.setCurrentWidget(self.day_selector)
