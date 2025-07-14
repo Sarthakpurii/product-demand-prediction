@@ -21,7 +21,7 @@ BASE_DIR = BASE_DIR / "model_strategies/model1_predicting_combined_sales/rf_mode
 try:
     # rf_model = joblib.load('model_strategies/model1_predicting_combined_sales/rf_model.pkl')
     rf_model = joblib.load(BASE_DIR)
-    print(rf_model)
+    # print(rf_model)
 except FileNotFoundError:
     print("Model not found.")
 class MainWindow(QMainWindow):
@@ -76,7 +76,7 @@ class MainWindow(QMainWindow):
         
     def go_to_product_selector(self, selected_day):
         self.selected_day = selected_day
-        print(f"Selected day: {selected_day}")
+        # print(f"Selected day: {selected_day}")
         self.stacked_widget.setCurrentWidget(self.product_selector)
         
     def go_to_day_selector(self):
@@ -84,7 +84,7 @@ class MainWindow(QMainWindow):
         
     def go_to_special_selector(self, selected_product):
         self.selected_product = selected_product
-        print(f"Selected product: {selected_product}")
+        # print(f"Selected product: {selected_product}")
         self.stacked_widget.setCurrentWidget(self.special_selector)
     
     def go_to_product_selector_from_special(self):
@@ -92,7 +92,7 @@ class MainWindow(QMainWindow):
         
     def go_to_inflation_inputter(self, selected_stores):
         self.selected_stores = selected_stores
-        print(f"Selected stores: {selected_stores}")
+        # print(f"Selected stores: {selected_stores}")
         self.stacked_widget.setCurrentWidget(self.inflation_inputter)
         
     def go_to_special_selector_from_inflation(self):
@@ -100,7 +100,7 @@ class MainWindow(QMainWindow):
         
     def go_to_unemployment_inputter(self, inflation_percentage):
         self.inputted_inflation = inflation_percentage
-        print(f"Inputted inflation: {inflation_percentage}")
+        # print(f"Inputted inflation: {inflation_percentage}")
         self.stacked_widget.setCurrentWidget(self.unemployment_inputter)
     
     def go_to_inflation_inputter_from_unemployment(self):
@@ -109,7 +109,7 @@ class MainWindow(QMainWindow):
         
     def confirm_details(self, unemployment_percentage):
         self.inputted_unemployment = unemployment_percentage
-        print(f"Inputted unemployment: {unemployment_percentage}")
+        # print(f"Inputted unemployment: {unemployment_percentage}")
              
         reply = QMessageBox.question(
             self, 
@@ -131,15 +131,22 @@ class MainWindow(QMainWindow):
         self.selected_stores = []
         self.inputted_inflation = None
         self.inputted_unemployment = None
+        
+        
+        self.inflation_inputter.reset_input()
+        self.unemployment_inputter.reset_input()
+        self.product_selector.reset_input()
+        self.special_selector.reset_input()
+        self.day_selector.reset_input()
 
         
         self.stacked_widget.setCurrentWidget(self.day_selector)
 
     def predict_sales(self,day, product, specials, inflation_percentage, unemployment_percentage):
         data={"Day":day, "ProductName":product, "specials":specials, "Inflation_Percentage":inflation_percentage, "Unemployment_Percentage":unemployment_percentage}
-        print(data)
+        # print(data)
         data=preprocess(data)
-        print(data)
+        # print(data)
         sales=rf_model.predict(data)
-        print(sales)
+        # print(sales)
         return sales[0]

@@ -37,7 +37,7 @@ class SpecialSelectorPage(QWidget):
     def on_back_clicked(self):
         self.back_clicked.emit()
     
-    def reset_selection(self):
+    def reset_input(self):
         """Reset all checkboxes to unchecked"""
         self.ui.checkBox_3.setChecked(False)
         self.ui.checkBox_2.setChecked(False)

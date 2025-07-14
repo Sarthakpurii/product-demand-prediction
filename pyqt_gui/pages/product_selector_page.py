@@ -33,3 +33,6 @@ class ProductSelectorPage(QWidget):
     
     def on_back_clicked(self):
         self.back_clicked.emit()
+        
+    def reset_input(self):
+        self.ui.comboBox.setCurrentIndex(0)
